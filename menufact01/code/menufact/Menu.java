@@ -9,8 +9,9 @@ public class Menu {
     private String description;
     private int courant;
     private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
+    private static Menu instance = null;
 
-    public Menu(String description) {
+    private Menu(String description) {
         this.description = description;
     }
 
@@ -45,6 +46,13 @@ public class Menu {
             courant--;
     }
 
+    public static Menu getInstance(String description)
+    {
+        if (instance == null){
+            instance = new Menu(description);
+        }
+        return instance;
+    }
 
     @Override
     public String toString() {

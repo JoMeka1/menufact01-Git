@@ -28,8 +28,8 @@ public class TestMenuFact02 {
         PlatSante ps5 = new PlatSante(14,"PlatSante4",50,11,11,11);
 
 
-        Menu m1 = new Menu("menufact.Menu 1");
-        Menu m2 = new Menu("menufact.Menu 2");
+        Menu m1 = Menu.getInstance("menufact.Menu 1");
+        Menu m2 = Menu.getInstance("menufact.Menu 2");
 
         Facture f1 = new Facture("Ma facture");
 
@@ -105,7 +105,7 @@ public class TestMenuFact02 {
     }
 
     private void test1_AffichePlatsAuMenu(boolean trace, PlatAuMenu p1, PlatAuMenu p2,
-                                                 PlatAuMenu p3, PlatAuMenu p4, PlatAuMenu p5)
+                                          PlatAuMenu p3, PlatAuMenu p4, PlatAuMenu p5)
     {
         System.out.println("=== test1_AffichePlatsAuMenu");
         if(trace)
@@ -119,8 +119,8 @@ public class TestMenuFact02 {
     }
 
 
-   private void test2_AffichePlatsSante(boolean trace, PlatSante ps1, PlatSante ps2,
-                                               PlatSante ps3, PlatSante ps4, PlatSante ps5)
+    private void test2_AffichePlatsSante(boolean trace, PlatSante ps1, PlatSante ps2,
+                                         PlatSante ps3, PlatSante ps4, PlatSante ps5)
     {
         System.out.println("=== test2_AffichePlatsSante");
 
@@ -200,7 +200,7 @@ public class TestMenuFact02 {
         }
         catch (MenuException me)
         {
-                throw me;
+            throw me;
         }
     }
 
