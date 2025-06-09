@@ -1,9 +1,10 @@
-package menufact;
+package menufact.vue;
 
-import menufact.facture.Facture;
-import menufact.plats.PlatAuMenu;
-import menufact.plats.PlatChoisi;
-import menufact.plats.PlatSante;
+import menufact.controleur.facture.Facture;
+import menufact.modele.plats.PlatAuMenu;
+import menufact.modele.plats.PlatChoisi;
+import menufact.modele.plats.PlatSante;
+import menufact.modele.Menu;
 
 public class TestMenuFact01 {
     public static void main(String[] args) {

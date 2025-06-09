@@ -1,4 +1,4 @@
-package menufact.plats;
+package menufact.modele.plats;
 
 public class PlatAuMenu {
     private int code;

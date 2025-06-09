@@ -1,4 +1,4 @@
-package ingredients;
+package menufact.modele.ingredients;
 
 public class Ingredient {
     private String nom;

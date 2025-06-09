@@ -1,4 +1,4 @@
-package ingredients.exceptions;
+package menufact.Modele.ingredients.exceptions;
 
 public class IngredientException extends Exception{
     public IngredientException(String message){

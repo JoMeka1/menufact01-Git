@@ -1,6 +1,6 @@
-package ingredients;
+package menufact.modele.ingredients;
 
-import ingredients.exceptions.IngredientException;
+import menufact.Modele.ingredients.exceptions.IngredientException;
 
 public class IngredientInventaire {
     private IngredientInventaire ingredientInventaire;

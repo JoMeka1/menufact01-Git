@@ -1,8 +1,8 @@
-package menufact.facture;
+package menufact.controleur.facture;
 
-import menufact.Client;
-import menufact.facture.exceptions.FactureException;
-import menufact.plats.PlatChoisi;
+import menufact.modele.Client;
+import menufact.controleur.facture.exceptions.FactureException;
+import menufact.modele.plats.PlatChoisi;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,7 +1,7 @@
-package menufact;
+package menufact.modele;
 
-import menufact.exceptions.MenuException;
-import menufact.plats.PlatAuMenu;
+import menufact.modele.exceptions.MenuException;
+import menufact.modele.plats.PlatAuMenu;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class Menu {
         this.description = description;
     }
 
-    void ajoute (PlatAuMenu p)
+    public void ajoute (PlatAuMenu p)
     {
         plat.add(p);
     }

@@ -1,4 +1,4 @@
-package menufact;
+package menufact.modele;
 
 public class Client {
     private int idClient;
