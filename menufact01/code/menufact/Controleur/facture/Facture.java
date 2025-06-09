@@ -2,6 +2,7 @@ package menufact.controleur.facture;
 
 import menufact.modele.Client;
 import menufact.controleur.facture.exceptions.FactureException;
+import menufact.modele.Observateur;
 import menufact.modele.plats.PlatChoisi;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class Facture {
     private String description;
     private FactureEtat etat;
     private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
+    private PlatChoisi platChoisi;
+    private Observateur observateur;
     private int courant;
     private Client client;
 
@@ -124,8 +127,10 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE)
+        if (etat == FactureEtat.OUVERTE) {
             platchoisi.add(p);
+            observateur.actualiser(p);
+        }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
     }
