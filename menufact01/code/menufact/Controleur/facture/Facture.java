@@ -1,5 +1,6 @@
 package menufact.controleur.facture;
 
+import menufact.modele.Chef;
 import menufact.modele.Client;
 import menufact.controleur.facture.exceptions.FactureException;
 import menufact.modele.Observateur;
@@ -118,6 +119,7 @@ public class Facture {
         courant = -1;
         this.description = description;
         this.platchoisi = new ArrayList<>();
+        observateur = new Chef();
     }
 
     /**
@@ -127,7 +129,7 @@ public class Facture {
      */
     public void ajoutePlat(PlatChoisi p) throws FactureException
     {
-        if (etat == FactureEtat.OUVERTE) {
+        if (etat instanceof EtatOuverte) {
             platchoisi.add(p);
             observateur.actualiser(p);
         }
