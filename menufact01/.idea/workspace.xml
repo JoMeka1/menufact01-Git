@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="787d849d-f77a-45c3-b846-01e155fc4af3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/code/menufact/modele/Chef.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/menufact/modele/Observateur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/menufact/modele/plats/ConcretePlatFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/menufact/modele/plats/PlatFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/menufact/modele/plats/TypePlat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menufact01_dclasses.uxf" beforeDir="false" afterPath="$PROJECT_DIR$/../menufact01_dclasses.uxf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
