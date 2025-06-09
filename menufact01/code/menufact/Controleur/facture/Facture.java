@@ -131,7 +131,8 @@ public class Facture {
     {
         if (etat instanceof EtatOuverte) {
             platchoisi.add(p);
-            observateur.actualiser(p);
+            if (observateur != null)
+                observateur.actualiser(p);
         }
         else
             throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
