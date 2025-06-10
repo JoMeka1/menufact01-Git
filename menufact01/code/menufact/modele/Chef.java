@@ -8,6 +8,6 @@ public class Chef implements Observateur {
     @Override
     public void actualiser(PlatChoisi plat) {
         plat.setEtatCourant(new EtatEnPrepararation());
-        // mettre plat a l'etat en preparation
+
     }
 }
