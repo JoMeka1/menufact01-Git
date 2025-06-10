@@ -1,9 +1,19 @@
 package menufact.modele.ingredients;
 
+import menufact.modele.ingredients.UniteMesure;
+
 public class Ingredient {
     private String nom;
     private String description;
     private TypeIngredient typeIngredient;
+    private UniteMesure unite;
+
+    public Ingredient(String nom, String description, TypeIngredient typeIngredient,UniteMesure unite) {
+        this.nom = nom;
+        this.description = description;
+        this.typeIngredient = typeIngredient;
+        this.unite = unite;
+    }
 
     public String getNom() {
         return nom;

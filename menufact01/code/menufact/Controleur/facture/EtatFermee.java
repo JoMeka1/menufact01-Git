@@ -10,6 +10,7 @@ public class EtatFermee extends FactureEtat{
 
     @Override
     public void ajouterPlat(PlatChoisi plat) {
+
     }
 
     @Override
