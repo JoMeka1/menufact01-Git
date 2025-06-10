@@ -4,7 +4,7 @@ import menufact.modele.plats.PlatAuMenu;
 
 public class PlatChoisi {
     private PlatAuMenu plat;
-    private int quantite;
+    private double quantite;
 
     public PlatChoisi(PlatAuMenu plat, int quantite) {
         this.plat = plat;
@@ -19,11 +19,11 @@ public class PlatChoisi {
                 '}';
     }
 
-    public int getQuantite() {
+    public double getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(int quantite) {
+    public void setQuantite(double quantite) {
         this.quantite = quantite;
     }
 

@@ -1,21 +1,30 @@
 package menufact.modele.ingredients;
 
-import menufact.Modele.ingredients.exceptions.IngredientException;
+import menufact.modele.ingredients.exceptions.IngredientException;
 
 public class IngredientInventaire {
-    private IngredientInventaire ingredientInventaire;
-    private int quantite;
+    private Ingredient ingredient;
+    private double quantite;
 
-    public IngredientInventaire(IngredientInventaire ingredientInventaire, int quantite) {
-        this.ingredientInventaire = ingredientInventaire;
+    public IngredientInventaire(Ingredient ingredient, double quantite) {
+        this.ingredient = ingredient;
         this.quantite = quantite;
     }
 
-    public int getQuantite() {
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public void retirerQuantite(double quantite) throws IngredientException {
+        setQuantite(this.quantite - quantite);
+    }
+
+
+    public double getQuantite() {
         return quantite;
     }
 
-    public void setQuantite(int quantite) throws IngredientException{
+    public void setQuantite(double quantite) throws IngredientException{
 
         if (quantite < 0)
             throw new IngredientException("Il n'est pas possible d'avoir une quantité negative");
