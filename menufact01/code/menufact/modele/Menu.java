@@ -1,7 +1,7 @@
-package menufact.modele;
+package modele;
 
-import menufact.modele.exceptions.MenuException;
-import menufact.modele.plats.PlatAuMenu;
+import modele.exceptions.MenuException;
+import modele.plats.PlatAuMenu;
 
 import java.util.ArrayList;
 

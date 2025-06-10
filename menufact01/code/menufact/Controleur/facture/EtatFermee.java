@@ -1,7 +1,7 @@
-package menufact.controleur.facture;
+package controleur.facture;
 
-import menufact.controleur.facture.exceptions.FactureException;
-import menufact.modele.plats.PlatChoisi;
+import controleur.facture.exceptions.FactureException;
+import modele.plats.PlatChoisi;
 
 public class EtatFermee extends FactureEtat{
 

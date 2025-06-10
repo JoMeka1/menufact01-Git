@@ -1,4 +1,4 @@
-package menufact.modele.exceptions;
+package modele.exceptions;
 
 public class MenuException extends Exception{
 

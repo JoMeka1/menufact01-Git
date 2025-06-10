@@ -1,10 +1,10 @@
-package menufact.controleur.facture;
+package controleur.facture;
 
-import menufact.modele.Chef;
-import menufact.modele.Client;
-import menufact.controleur.facture.exceptions.FactureException;
-import menufact.modele.Observateur;
-import menufact.modele.plats.PlatChoisi;
+import modele.Chef;
+import modele.Client;
+import controleur.facture.exceptions.FactureException;
+import modele.Observateur;
+import modele.plats.PlatChoisi;
 
 import java.util.ArrayList;
 import java.util.Date;

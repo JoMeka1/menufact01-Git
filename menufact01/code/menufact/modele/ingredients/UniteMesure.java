@@ -1,4 +1,4 @@
-package menufact.modele.ingredients;
+package modele.ingredients;
 
 public interface UniteMesure {
     String getUnite();

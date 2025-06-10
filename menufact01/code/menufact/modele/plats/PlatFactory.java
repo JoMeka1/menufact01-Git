@@ -1,4 +1,4 @@
-package menufact.modele.plats;
+package modele.plats;
 
 public interface PlatFactory {
     public Plat creerPlat(TypePlat type, int code, String description, double prix,

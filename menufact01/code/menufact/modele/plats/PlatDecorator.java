@@ -1,4 +1,4 @@
-package menufact.modele.plats;
+package modele.plats;
 
 public abstract class PlatDecorator implements Plat {
     protected Plat plat;

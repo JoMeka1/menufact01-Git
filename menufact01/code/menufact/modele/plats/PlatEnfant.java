@@ -1,4 +1,4 @@
-package menufact.modele.plats;
+package modele.plats;
 
 public class PlatEnfant extends PlatAuMenu{
     private double proportion;

@@ -1,6 +1,7 @@
-package menufact.modele.ingredients;
+package modele.ingredients;
 
-import menufact.modele.ingredients.UniteMesure;
+import modele.ingredients.UniteMesure;
+import modele.ingredients.TypeIngredient;
 
 public class Ingredient {
     private String nom;
