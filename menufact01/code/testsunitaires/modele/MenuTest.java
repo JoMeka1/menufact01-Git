@@ -1,5 +1,6 @@
-package modele.plats;
+package modele;
 
+import modele.plats.PlatAuMenu;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

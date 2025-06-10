@@ -38,6 +38,10 @@ public class Facture {
         this.client = client;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
     /**
      * Calcul du sous total de la facture
      * @return le sous total
