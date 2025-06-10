@@ -1,6 +1,6 @@
 package menufact.modele.plats;
 
-public class PlatAuMenu {
+public class PlatAuMenu implements Plat {
     private int code;
     private String description;
     private double prix;
@@ -15,12 +15,18 @@ public class PlatAuMenu {
     }
 
     @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public double getPrix() {
+        return prix;
+    }
+
+    @Override
     public String toString() {
-        return "menufact.plats.PlatAuMenu{" +
-                "code=" + code +
-                ", description='" + description + '\'' +
-                ", prix=" + prix +
-                "}\n";
+        return "PlatAuMenu{code=" + code + ", description='" + description + "', prix=" + prix + "}";
     }
 
     public int getCode() {
@@ -31,16 +37,8 @@ public class PlatAuMenu {
         this.code = code;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public double getPrix() {
-        return prix;
     }
 
     public void setPrix(double prix) {

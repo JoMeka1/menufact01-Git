@@ -1,5 +1,7 @@
 package menufact.modele.plats;
 
 public interface PlatFactory {
-    public PlatAuMenu creerPlat(TypePlat type,int code,String description,double prix);
+    public Plat creerPlat(TypePlat type, int code, String description, double prix,
+                          double kcal, double chol, double gras, double proportion)
+            throws IllegalArgumentException;
 }
