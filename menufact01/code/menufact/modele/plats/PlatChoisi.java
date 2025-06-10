@@ -41,4 +41,8 @@ public class PlatChoisi {
     public void setEtatCourant(EtatPlat etat) {
         this.etatCourant = etat;
     }
+
+    public EtatPlat getEtatCourant() {
+        return etatCourant;
+    }
 }

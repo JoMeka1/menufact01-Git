@@ -67,7 +67,17 @@ public class TestMenuFact02 {
             System.out.println(e.getMessage());
         }
 
-        t.test9_PayerFacture(f1);
+        try {
+            t.test11_EtatPlatEtObservateur(f1, m1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            t.test9_PayerFacture(f1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
         try {
             t.test10_FermerFacture(f1);
@@ -234,5 +244,90 @@ public class TestMenuFact02 {
         }
         System.out.println("Après avoir fermé la facture");
         System.out.println(f1.afficherMontants());
+    }
+
+    private void test11_EtatPlatEtObservateur(Facture f1, Menu m1) throws Exception {
+        System.out.println("=== test11_EtatPlatEtObservateur");
+        System.out.println("=== Créer et ajouter un plat à la facture pour tester l'observateur");
+        m1.position(0); // Sélectionner un plat
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), 3);
+        try {
+            f1.ajoutePlat(platChoisi);
+            System.out.println("État du plat après ajout (devrait être EnPreparation) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
+            System.out.println("Affichage de l'état EnPreparation : " + platChoisi.getEtatCourant().afficher(platChoisi));
+            if (!(platChoisi.getEtatCourant() instanceof EtatEnPrepararation)) {
+                throw new Exception("L'observateur n'a pas mis le plat en EtatEnPreparation.");
+            }
+            if (!platChoisi.getEtatCourant().afficher(platChoisi).equals("Plat en préparation")) {
+                throw new Exception("Affichage de l'état EnPreparation incorrect.");
+            }
+        } catch (FactureException fe) {
+            throw new Exception("Échec de l'ajout du plat : " + fe.getMessage());
+        }
+
+        System.out.println("=== Tester les transitions d'état");
+        // Transition vers EtatTermine
+        platChoisi.getEtatCourant().terminer(platChoisi);
+        System.out.println("État après terminer (devrait être Termine) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
+        System.out.println("Affichage de l'état Termine : " + platChoisi.getEtatCourant().afficher(platChoisi));
+        if (!(platChoisi.getEtatCourant() instanceof EtatTermine)) {
+            throw new Exception("Transition vers EtatTermine échouée.");
+        }
+        if (!platChoisi.getEtatCourant().afficher(platChoisi).equals("Plat terminé")) {
+            throw new Exception("Affichage de l'état Termine incorrect.");
+        }
+
+        // Transition vers EtatServi
+        platChoisi.getEtatCourant().servir(platChoisi);
+        System.out.println("État après servir (devrait être Servi) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
+        System.out.println("Affichage de l'état Servi : " + platChoisi.getEtatCourant().afficher(platChoisi));
+        if (!(platChoisi.getEtatCourant() instanceof EtatServi)) {
+            throw new Exception("Transition vers EtatServi échouée.");
+        }
+        if (!platChoisi.getEtatCourant().afficher(platChoisi).equals("Plat servi")) {
+            throw new Exception("Affichage de l'état Servi incorrect.");
+        }
+
+        // Tester une transition invalide depuis EtatServi
+        System.out.println("=== Tester une transition invalide depuis EtatServi");
+        try {
+            platChoisi.getEtatCourant().preparer(platChoisi);
+            throw new Exception("Préparer un plat servi aurait dû lever une exception.");
+        } catch (IllegalStateException e) {
+            System.out.println("Exception attendue : " + e.getMessage());
+        }
+
+        // Créer un autre plat pour tester EtatPasServable
+        System.out.println("=== Tester EtatPasServable");
+        PlatChoisi platChoisi2 = new PlatChoisi(m1.platCourant(), 2);
+        f1.ajoutePlat(platChoisi2); // Passe à EtatEnPreparation via l'observateur
+        platChoisi2.getEtatCourant().rendreInservable(platChoisi2);
+        System.out.println("État après rendre inservable (devrait être PasServable) : " + platChoisi2.getEtatCourant().getClass().getSimpleName());
+        System.out.println("Affichage de l'état PasServable : " + platChoisi2.getEtatCourant().afficher(platChoisi2));
+        if (!(platChoisi2.getEtatCourant() instanceof EtatPasServable)) {
+            throw new Exception("Transition vers EtatPasServable échouée.");
+        }
+        if (!platChoisi2.getEtatCourant().afficher(platChoisi2).equals("Impossible de servir ce plat")) {
+            throw new Exception("Affichage de l'état PasServable incorrect.");
+        }
+
+        // Tester une transition invalide depuis EtatPasServable
+        System.out.println("=== Tester une transition invalide depuis EtatPasServable");
+        try {
+            platChoisi2.getEtatCourant().servir(platChoisi2);
+            throw new Exception("Servir un plat inservable aurait dû lever une exception.");
+        } catch (IllegalStateException e) {
+            System.out.println("Exception attendue : " + e.getMessage());
+        }
+
+        // Tester une transition invalide depuis EtatCommande
+        System.out.println("=== Tester une transition invalide depuis EtatCommande");
+        PlatChoisi platChoisi3 = new PlatChoisi(m1.platCourant(), 1);
+        try {
+            platChoisi3.getEtatCourant().servir(platChoisi3);
+            throw new Exception("Servir un plat commandé aurait dû lever une exception.");
+        } catch (IllegalStateException e) {
+            System.out.println("Exception attendue : " + e.getMessage());
+        }
     }
 }
