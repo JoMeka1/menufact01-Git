@@ -19,7 +19,7 @@ public class EtatPayee extends FactureEtat {
 
     @Override
     public  void fermer(){
-        facture.fermer();
+
     }
 
     @Override
@@ -32,15 +32,12 @@ public class EtatPayee extends FactureEtat {
     }
 
     @Override
-    public String afficher(Facture facture) {
-        double sousTotal = facture.sousTotal();
-        double taxes = facture.tps() + facture.tvq();
-        double total = sousTotal + taxes;
-        return String.format("Facture payée - Sous-total: %.2f$, Taxes: %.2f$, Total: %.2f$", sousTotal, taxes, total);
+    public String afficher() {
+        return "";
     }
 
     @Override
     public void payer(){
-        System.out.println("Facture payer");
+
     }
 }

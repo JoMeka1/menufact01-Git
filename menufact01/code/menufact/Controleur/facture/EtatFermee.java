@@ -1,6 +1,5 @@
 package menufact.controleur.facture;
 
-import menufact.controleur.facture.exceptions.FactureException;
 import menufact.modele.plats.PlatChoisi;
 
 public class EtatFermee extends FactureEtat{
@@ -21,7 +20,7 @@ public class EtatFermee extends FactureEtat{
 
     @Override
     public  void fermer(){
-        System.out.println("Facture fermer");
+
     }
 
     @Override
@@ -30,23 +29,16 @@ public class EtatFermee extends FactureEtat{
     }
 
     @Override
-    public void ouvrir() {
-        try {
-            facture.ouvrir();
-        } catch (FactureException e) {
-            throw new RuntimeException(e);
-        }
+    public void ouvrir(){
     }
 
     @Override
-    public String afficher(Facture facture) {
-        double sousTotal = facture.sousTotal();
-        double taxes = facture.tps() + facture.tvq();
-        double total = sousTotal + taxes;
-        return String.format("Facture fermée - Sous-total: %.2f$, Taxes: %.2f$, Total: %.2f$", sousTotal, taxes, total);}
+    public String afficher() {
+        return "";
+    }
 
     @Override
     public void payer(){
-        facture.payer();
+
     }
 }

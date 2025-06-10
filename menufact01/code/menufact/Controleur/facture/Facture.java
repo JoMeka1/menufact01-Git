@@ -24,7 +24,6 @@ public class Facture {
     private int courant;
     private Client client;
 
-
     /**********************Constantes ************/
     private final double TPS = 0.05;
     private final double TVQ = 0.095;
@@ -62,7 +61,7 @@ public class Facture {
      *
      * @return la valeur de la TPS
      */
-    public double tps(){
+    private double tps(){
         return TPS*sousTotal();
     }
 
@@ -70,7 +69,7 @@ public class Facture {
      *
      * @return la valeur de la TVQ
      */
-    public double tvq(){
+    private  double tvq(){
         return TVQ*(TPS+1)*sousTotal();
     }
 
@@ -88,7 +87,6 @@ public class Facture {
     {
        etat = new EtatFermee(this);
     }
-
 
     /**
      * Permet de changer l'état de la facture à OUVERTE
@@ -188,9 +186,5 @@ public class Facture {
         factureGenere += "          Le total est de:   " + total() + "\n";
 
         return factureGenere;
-    }
-
-    public String afficherMontants() {
-        return etat.afficher(this);
     }
 }
