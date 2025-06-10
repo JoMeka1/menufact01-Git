@@ -1,13 +1,13 @@
 package vue;
 
-import menufact.controleur.facture.Facture;
-import menufact.controleur.facture.exceptions.FactureException;
-import menufact.modele.Client;
-import menufact.modele.Chef;
-import menufact.modele.Observateur;
-import menufact.modele.exceptions.MenuException;
-import menufact.modele.plats.*;
-import menufact.modele.Menu;
+import controleur.facture.Facture;
+import controleur.facture.exceptions.FactureException;
+import modele.Client;
+import modele.Chef;
+import modele.Observateur;
+import modele.exceptions.MenuException;
+import modele.plats.*;
+import modele.Menu;
 
 public class TestMenuFact02 {
 
