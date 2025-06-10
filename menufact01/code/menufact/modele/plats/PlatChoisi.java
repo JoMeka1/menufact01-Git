@@ -4,11 +4,13 @@ import menufact.modele.plats.PlatAuMenu;
 
 public class PlatChoisi {
     private PlatAuMenu plat;
+    private EtatPlat etatCourant;
     private double quantite;
 
     public PlatChoisi(PlatAuMenu plat, int quantite) {
         this.plat = plat;
         this.quantite = quantite;
+        this.etatCourant = new EtatCommande();
     }
 
     @Override
@@ -29,5 +31,9 @@ public class PlatChoisi {
 
     public PlatAuMenu getPlat() {
         return plat;
+    }
+
+    public void setEtatCourant(EtatPlat etat) {
+        this.etatCourant = etat;
     }
 }
