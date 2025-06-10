@@ -15,6 +15,6 @@ public abstract class FactureEtat {
     public abstract void ouvrir();
     public abstract void payer();
     public abstract void selectionnerPlat(PlatChoisi plat);
-    public abstract String afficher();
+    public abstract String afficher(Facture facture);
 }
 
