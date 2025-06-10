@@ -4,7 +4,7 @@ package modele.plats;
  * Représente l'état d'un plat en cours de préparation par le chef.
  * Le plat peut être terminé, servi directement, ou rendu inservable.
  */
-public class EtatEnPrepararation implements EtatPlat {
+public class EtatEnPreparation implements EtatPlat {
 
     /**
      * Tente de préparer un plat déjà en préparation, ce qui est interdit.
