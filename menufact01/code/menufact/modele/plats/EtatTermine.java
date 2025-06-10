@@ -12,7 +12,7 @@ public class EtatTermine implements EtatPlat {
      */
     @Override
     public void preparer(PlatChoisi plat) {
-        plat.setEtatCourant(new EtatEnPrepararation());
+        plat.setEtatCourant(new EtatEnPreparation());
     }
 
     /**

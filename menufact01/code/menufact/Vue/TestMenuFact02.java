@@ -255,7 +255,7 @@ public class TestMenuFact02 {
             f1.ajoutePlat(platChoisi);
             System.out.println("État du plat après ajout (devrait être EnPreparation) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
             System.out.println("Affichage de l'état EnPreparation : " + platChoisi.getEtatCourant().afficher(platChoisi));
-            if (!(platChoisi.getEtatCourant() instanceof EtatEnPrepararation)) {
+            if (!(platChoisi.getEtatCourant() instanceof EtatEnPreparation)) {
                 throw new Exception("L'observateur n'a pas mis le plat en EtatEnPreparation.");
             }
             if (!platChoisi.getEtatCourant().afficher(platChoisi).equals("Plat en préparation")) {
