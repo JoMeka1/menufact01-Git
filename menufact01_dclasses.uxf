@@ -451,7 +451,9 @@ EPICE
 +getDescription(): String  
 +setDescription(description: String): void  
 +getTypeIngredient(): TypeIngredient  
-+setTypeIngredient(type: TypeIngredient): void  
++setTypeIngredient(typeIngredient: TypeIngredient): void  
++getUnite(): UniteMesure  
++setUnite(unite: UniteMesure): void
 </panel_attributes>
     <additional_attributes/>
   </element>

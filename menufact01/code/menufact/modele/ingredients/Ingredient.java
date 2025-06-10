@@ -38,4 +38,12 @@ public class Ingredient {
     public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
     }
+    
+    public UniteMesure getUnite() {
+        return unite;
+    }
+
+    public void setUnite(UniteMesure unite) {
+        this.unite = unite;
+    }
 }
