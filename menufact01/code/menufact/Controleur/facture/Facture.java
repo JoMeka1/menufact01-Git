@@ -123,15 +123,8 @@ public class Facture {
      * @param p un plat choisi
      * @throws FactureException Seulement si la facture est OUVERTE
      */
-    public void ajoutePlat(PlatChoisi p) throws FactureException
-    {
-        if (etat instanceof EtatOuverte) {
-            platchoisi.add(p);
-            if (observateur != null)
-                observateur.actualiser(p);
-        }
-        else
-            throw new FactureException("On peut ajouter un plat seulement sur une facture OUVERTE.");
+    public void ajoutePlat(PlatChoisi p) throws Exception {
+        etat.ajouterPlat(p);
     }
 
     /**
@@ -158,30 +151,24 @@ public class Facture {
      */
     public String genererFacture()
     {
-        String lesPlats = new String();
-        String factureGenere = new String();
+        StringBuilder factureGenere = new StringBuilder();
+        factureGenere.append("Facture générée.\n")
+                .append("Date: ").append(date).append("\n")
+                .append("Description: ").append(description).append("\n")
+                .append("Client: ").append(client != null ? client.getNom() : "Aucun").append("\n")
+                .append("Les plats commandés:\n");
 
-        int i =1;
-
-
-        factureGenere =   "Facture generee.\n" +
-                          "Date:" + date + "\n" +
-                          "Description: " + description + "\n" +
-                          "Client:" + client.getNom() + "\n" +
-                          "Les plats commandes:" + "\n" + lesPlats;
-
-        factureGenere += "Seq   Plat         Prix   Quantite\n";
-        for (PlatChoisi plat : platchoisi)
-        {
-            factureGenere +=  i + "     " + plat.getPlat().getDescription() +  "  " + plat.getPlat().getPrix() +  "      " + plat.getQuantite() + "\n";
-            i++;
+        factureGenere.append("Seq   Plat         Prix   Quantité\n");
+        int i = 1;
+        for (PlatChoisi plat : platchoisi) {
+            factureGenere.append(String.format("%d     %s  %.2f      %.1f\n", i++, plat.getPlat().getDescription(), plat.getPlat().getPrix(), plat.getQuantite()));
         }
 
-        factureGenere += "          TPS:               " + tps() + "\n";
-        factureGenere += "          TVQ:               " + tvq() + "\n";
-        factureGenere += "          Le total est de:   " + total() + "\n";
+        factureGenere.append(String.format("          TPS:               %.2f\n", tps()))
+                .append(String.format("          TVQ:               %.2f\n", tvq()))
+                .append(String.format("          Le total est de:   %.2f\n", total()));
 
-        return factureGenere;
+        return factureGenere.toString();
     }
 
     public String afficherMontants() {

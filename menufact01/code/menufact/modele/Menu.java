@@ -20,14 +20,20 @@ public class Menu {
         plat.add(p);
     }
 
-    public void position(int i)
-    {
-        courant = i;
+    public void position(int i) throws MenuException {
+        if (i >= 0 && i < plat.size()) {
+            courant = i;
+        } else {
+            throw new MenuException("Position invalide : " + i);
+        }
     }
 
-    public Plat platCourant()
-    {
-        return plat.get(courant);
+    public Plat platCourant() throws MenuException {
+        if (courant >= 0 && courant < plat.size()) {
+            return plat.get(courant);
+        } else {
+            throw new MenuException("Aucun plat courant disponible.");
+        }
     }
 
     public void positionSuivante() throws MenuException

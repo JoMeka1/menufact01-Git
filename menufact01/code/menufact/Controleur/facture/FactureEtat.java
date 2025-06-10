@@ -16,5 +16,8 @@ public abstract class FactureEtat {
     public abstract void payer() throws Exception;
     public abstract void selectionnerPlat(PlatChoisi plat) throws Exception;
     public abstract String afficherMontants(Facture facture);
+    public String afficher(Facture facture) {
+        return afficherMontants(facture);
+    }
 }
 

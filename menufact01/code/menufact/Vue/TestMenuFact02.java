@@ -22,6 +22,7 @@ public class TestMenuFact02 {
         Plat p3 = factory.creerPlat(TypePlat.NORMAL, 2, "PlatAuMenu2", 30.0, 0.0, 0.0, 0.0, 0.0);
         Plat p4 = factory.creerPlat(TypePlat.NORMAL, 3, "PlatAuMenu3", 40.0, 0.0, 0.0, 0.0, 0.0);
         Plat p5 = factory.creerPlat(TypePlat.NORMAL, 4, "PlatAuMenu4", 50.0, 0.0, 0.0, 0.0, 0.0);
+        Plat p6 = factory.creerPlat(TypePlat.NORMAL, 5, "PlatAuMenu5", 60.0, 0.0, 0.0, 0.0, 0.0);
         Plat ps1 = factory.creerPlat(TypePlat.SANTE, 10, "PlatSante0", 10.0, 200.0, 0.0, 5.0, 0.0);
         Plat ps2 = factory.creerPlat(TypePlat.SANTE, 11, "PlatSante1", 20.0, 200.0, 0.0, 5.0, 0.0);
         Plat ps3 = factory.creerPlat(TypePlat.SANTE, 12, "PlatSante2", 30.0, 200.0, 0.0, 5.0, 0.0);
@@ -29,17 +30,16 @@ public class TestMenuFact02 {
         Plat ps5 = factory.creerPlat(TypePlat.SANTE, 14, "PlatSante4", 50.0, 200.0, 0.0, 5.0, 0.0);
 
         Menu m1 = Menu.getInstance("menufact.Menu 1");
-        Menu m2 = Menu.getInstance("menufact.Menu 2");
 
         Facture f1 = new Facture("Ma facture");
 
         Client c1 = new Client(1, "Mr Client", "1234567890");
         Observateur chef = new Chef();
 
-        t.test1_AffichePlats(trace, p1, p2, p3, p4, p5);
+        t.test1_AffichePlats(trace, p1, p2, p3, p4, p5, p6);
         t.test2_AffichePlatsSante(trace, ps1, ps2, ps3, ps4, ps5);
 
-        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2, m2, p3, p4, ps3, ps4);
+        t.test4_AjoutPlatsAuMenu(trace, m1, p1, p2, ps1, ps2);
 
         try {
             t.test5_DeplacementMenuAvancer(m1);
@@ -91,7 +91,7 @@ public class TestMenuFact02 {
         System.out.println(f1.afficherMontants());
     }
 
-    private void test1_AffichePlats(boolean trace, Plat p1, Plat p2, Plat p3, Plat p4, Plat p5) {
+    private void test1_AffichePlats(boolean trace, Plat p1, Plat p2, Plat p3, Plat p4, Plat p5, Plat p6) {
         System.out.println("=== test1_AffichePlats");
         if (trace) {
             System.out.println(p1);
@@ -99,6 +99,7 @@ public class TestMenuFact02 {
             System.out.println(p3);
             System.out.println(p4);
             System.out.println(p5);
+            System.out.println(p6);
         }
     }
 
@@ -113,7 +114,7 @@ public class TestMenuFact02 {
         }
     }
 
-    private void test4_AjoutPlatsAuMenu(boolean trace, Menu m1, Plat p1, Plat p2, Plat ps1, Plat ps2, Menu m2, Plat p3, Plat p4, Plat ps3, Plat ps4) {
+    private void test4_AjoutPlatsAuMenu(boolean trace, Menu m1, Plat p1, Plat p2, Plat ps1, Plat ps2) {
         System.out.println("=== test4_AjoutPlatsAuMenu");
         System.out.println("=== Ajout de plats au menu 1");
         m1.ajoute(p1);
@@ -121,21 +122,14 @@ public class TestMenuFact02 {
         m1.ajoute(ps1);
         m1.ajoute(ps2);
 
-        System.out.println("=== Ajout de plats au menu 2");
-        m2.ajoute(p3);
-        m2.ajoute(p4);
-        m2.ajoute(ps3);
-        m2.ajoute(ps4);
-
         if (trace) {
             System.out.println(m1);
-            System.out.println(m2);
         }
     }
 
     private void test5_DeplacementMenuAvancer(Menu m1) throws MenuException {
         System.out.println("=== test5_DeplacementMenuAvancer");
-        System.out.println("=== Selectionner un plat du menu 0");
+        System.out.println("=== Sélectionner le plat à la position 0 du menu");
         m1.position(0);
 
         System.out.println("=== Afficher le plat courant");
@@ -159,7 +153,7 @@ public class TestMenuFact02 {
 
     private void test6_DeplacementMenuReculer(Menu m1) throws MenuException {
         System.out.println("=== test6_DeplacementMenuReculer");
-        System.out.println("=== Selectionner un plat du menu 3");
+        System.out.println("=== Sélectionner le plat à la position 3 du menu");
         m1.position(3);
 
         System.out.println("=== Afficher le plat courant");
