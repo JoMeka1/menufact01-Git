@@ -894,12 +894,14 @@ bg=green</panel_attributes>
 --
 -plat:PlatAuMenu
 -quantite:int
+-etatCourant:etatPlat
 --
 +PlatChoisi(PlatAuMenu,int)
 +getQuantite():int
 +setQuantite(int):void
 +getPlat():PlatAuMenu
 +toString():String
++setEtatCourant(etatPLat etat):void
 
 bg=none
 fg=black</panel_attributes>
