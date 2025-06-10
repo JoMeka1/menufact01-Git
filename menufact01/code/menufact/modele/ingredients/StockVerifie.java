@@ -1,8 +1,8 @@
-package menufact.modele.ingredients;
+package modele.ingredients;
 
 import java.util.List;
 import java.util.Map;
-import menufact.modele.ingredients.exceptions.IngredientException;
+import modele.ingredients.exceptions.IngredientException;
 
 public class StockVerifie {
     private Map<Ingredient, IngredientInventaire> stock;

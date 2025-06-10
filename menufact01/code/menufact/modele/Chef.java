@@ -1,6 +1,6 @@
-package menufact.modele;
+package modele;
 
-import menufact.modele.plats.PlatChoisi;
+import modele.plats.PlatChoisi;
 
 public class Chef implements Observateur {
     @Override

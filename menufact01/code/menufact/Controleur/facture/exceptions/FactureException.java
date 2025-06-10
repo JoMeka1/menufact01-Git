@@ -1,4 +1,4 @@
-package menufact.controleur.facture.exceptions;
+package controleur.facture.exceptions;
 
 public class FactureException extends Exception{
 

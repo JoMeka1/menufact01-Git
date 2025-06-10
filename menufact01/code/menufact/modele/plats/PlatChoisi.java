@@ -1,6 +1,10 @@
-package menufact.modele.plats;
+package modele.plats;
 
+<<<<<<< HEAD
 import menufact.modele.plats.Plat;
+=======
+import modele.plats.PlatAuMenu;
+>>>>>>> origin/main
 
 public class PlatChoisi {
     private Plat plat;

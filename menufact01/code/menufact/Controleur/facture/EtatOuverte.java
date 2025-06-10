@@ -1,6 +1,6 @@
-package menufact.controleur.facture;
+package controleur.facture;
 
-import menufact.modele.plats.PlatChoisi;
+import modele.plats.PlatChoisi;
 
 public class EtatOuverte extends FactureEtat {
 

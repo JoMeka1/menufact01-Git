@@ -1,4 +1,4 @@
-package menufact.modele.plats;
+package modele.plats;
 
 public interface Plat {
     public String getDescription();

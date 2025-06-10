@@ -1,4 +1,4 @@
-package menufact.vue;
+package vue;
 
 import menufact.controleur.facture.Facture;
 import menufact.controleur.facture.exceptions.FactureException;

@@ -1,4 +1,4 @@
-package menufact.modele;
+package modele;
 
 import menufact.modele.exceptions.MenuException;
 import menufact.modele.plats.PlatAuMenu;

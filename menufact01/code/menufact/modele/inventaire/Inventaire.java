@@ -1,6 +1,6 @@
-package menufact.modele.inventaire;
+package modele.inventaire;
 
-import menufact.modele.ingredients.Ingredient;
+import modele.ingredients.Ingredient;
 
 import java.util.ArrayList;
 
