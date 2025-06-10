@@ -19,7 +19,7 @@ public class EtatOuverte extends FactureEtat {
 
     @Override
     public  void fermer(){
-
+        facture.fermer();
     }
 
     @Override
@@ -29,6 +29,7 @@ public class EtatOuverte extends FactureEtat {
 
     @Override
     public void ouvrir(){
+        System.out.println("Facture ouverte");
     }
 
     @Override
@@ -38,7 +39,7 @@ public class EtatOuverte extends FactureEtat {
 
     @Override
     public void payer(){
-
+        facture.payer();
     }
 
 
