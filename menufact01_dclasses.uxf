@@ -445,7 +445,8 @@ EPICE
 -typeIngredient: TypeIngredient  
 -unite: UniteMesure  
 --
-+Ingredient(nom: String, description: String, typeIngredient: TypeIngredient, unite: UniteMesure)  
++Ingredient(nom: String, description: String, typeIngredient: TypeIngredient, unite: UniteMesure) 
++Ingredient() 
 +getNom(): String  
 +setNom(nom: String): void  
 +getDescription(): String  
