@@ -243,12 +243,12 @@ bg=none</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>644</x>
-      <y>160</y>
+      <y>152</y>
       <w>60</w>
-      <h>116</h>
+      <h>124</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;130.0;290.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -658,12 +658,12 @@ bg=RED</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>508</x>
-      <y>160</y>
+      <y>152</y>
       <w>40</w>
-      <h>12</h>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>80.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -886,9 +886,9 @@ bg=green</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>540</x>
-      <y>124</y>
+      <y>116</y>
       <w>108</w>
-      <h>60</h>
+      <h>76</h>
     </coordinates>
     <panel_attributes>PlatChoisi
 --
@@ -901,7 +901,7 @@ bg=green</panel_attributes>
 +setQuantite(int):void
 +getPlat():PlatAuMenu
 +toString():String
-+setEtatCourant(etatPLat etat):void
++setEtatCourant(EtatPLat etat):void
 
 bg=none
 fg=black</panel_attributes>
@@ -911,12 +911,12 @@ fg=black</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>180</y>
+      <y>188</y>
       <w>12</w>
-      <h>36</h>
+      <h>28</h>
     </coordinates>
     <panel_attributes>lt=&lt;.</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

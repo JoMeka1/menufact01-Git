@@ -15,6 +15,10 @@ public class Ingredient {
         this.unite = unite;
     }
 
+    public Ingredient() {
+        //Voir si ajouter valeurs par defaut ou alors dans les ingredients (legumes...)
+    }
+
     public String getNom() {
         return nom;
     }
@@ -38,7 +42,7 @@ public class Ingredient {
     public void setTypeIngredient(TypeIngredient typeIngredient) {
         this.typeIngredient = typeIngredient;
     }
-    
+
     public UniteMesure getUnite() {
         return unite;
     }
