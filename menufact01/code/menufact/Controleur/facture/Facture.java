@@ -38,6 +38,10 @@ public class Facture {
         this.client = client;
     }
 
+    /**
+     *
+     * return le client de la facture
+     */
     public Client getClient() {
         return client;
     }
@@ -84,6 +88,7 @@ public class Facture {
     public void payer() throws Exception {
         etat.payer();
     }
+
     /**
      * Permet de changer l'état de la facture à FERMEE
      */
@@ -175,6 +180,10 @@ public class Facture {
         return factureGenere.toString();
     }
 
+    /**
+     *
+     * @return une chaine de caractere des montants de la facture
+     */
     public String afficherMontants() {
         return etat.afficherMontants(this);
     }

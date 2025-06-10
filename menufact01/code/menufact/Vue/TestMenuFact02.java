@@ -15,7 +15,6 @@ public class TestMenuFact02 {
         boolean trace = true;
         TestMenuFact02 t = new TestMenuFact02();
 
-        // Utilisation de ConcretePlatFactory pour créer les plats
         ConcretePlatFactory factory = new ConcretePlatFactory();
         Plat p1 = factory.creerPlat(TypePlat.NORMAL, 0, "PlatAuMenu0", 10.0, 0.0, 0.0, 0.0, 0.0);
         Plat p2 = factory.creerPlat(TypePlat.NORMAL, 1, "PlatAuMenu1", 20.0, 0.0, 0.0, 0.0, 0.0);
