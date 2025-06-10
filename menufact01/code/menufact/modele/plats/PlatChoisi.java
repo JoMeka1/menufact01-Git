@@ -1,14 +1,18 @@
 package menufact.modele.plats;
 
-import menufact.modele.plats.PlatAuMenu;
+import menufact.modele.plats.Plat;
 
 public class PlatChoisi {
-    private PlatAuMenu plat;
+    private Plat plat;
     private EtatPlat etatCourant;
     private double quantite;
 
-    public PlatChoisi(PlatAuMenu plat, int quantite) {
-        this.plat = plat;
+    public PlatChoisi(Plat plat, double quantite) {
+        if (plat instanceof PlatAuMenu || plat instanceof PlatDecorator) {
+            this.plat = plat;
+        } else {
+            throw new IllegalArgumentException("Plat doit être un PlatAuMenu ou un décorateur");
+        }
         this.quantite = quantite;
         this.etatCourant = new EtatCommande();
     }
@@ -29,7 +33,7 @@ public class PlatChoisi {
         this.quantite = quantite;
     }
 
-    public PlatAuMenu getPlat() {
+    public Plat getPlat() {
         return plat;
     }
 

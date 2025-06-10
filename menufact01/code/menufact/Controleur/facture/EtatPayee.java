@@ -9,30 +9,32 @@ public class EtatPayee extends FactureEtat {
     }
 
     @Override
-    public void ajouterPlat(PlatChoisi plat) {
+    public void ajouterPlat(PlatChoisi plat) throws Exception {
+        throw new Exception("La facture est payée, impossible d'ajouter un plat.");
     }
 
     @Override
-    public void retirerPlat(PlatChoisi plat){
-
+    public void retirerPlat(PlatChoisi plat) throws Exception {
+        throw new Exception("La facture est payée, impossible de retirer un plat.");
     }
 
     @Override
-    public  void fermer(){
-        facture.fermer();
+    public void fermer() throws Exception {
+        facture.etat = new EtatFermee(facture);
     }
 
     @Override
-    public  void selectionnerPlat(PlatChoisi plat){
-
+    public void selectionnerPlat(PlatChoisi plat) throws Exception {
+        throw new Exception("La facture est payée, impossible de sélectionner un plat.");
     }
 
     @Override
-    public void ouvrir(){
+    public void ouvrir() throws Exception {
+        throw new Exception("La facture est payée, impossible de l'ouvrir.");
     }
 
     @Override
-    public String afficher(Facture facture) {
+    public String afficherMontants(Facture facture) {
         double sousTotal = facture.sousTotal();
         double taxes = facture.tps() + facture.tvq();
         double total = sousTotal + taxes;
@@ -40,7 +42,7 @@ public class EtatPayee extends FactureEtat {
     }
 
     @Override
-    public void payer(){
-        System.out.println("Facture payer");
+    public void payer() throws Exception {
+        throw new Exception("La facture est déjà payée.");
     }
 }

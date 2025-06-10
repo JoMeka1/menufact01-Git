@@ -9,12 +9,12 @@ public abstract class FactureEtat {
         this.facture = facture;
     }
 
-    public abstract void ajouterPlat(PlatChoisi plat);
-    public abstract void retirerPlat(PlatChoisi plat);
-    public abstract void fermer();
-    public abstract void ouvrir();
-    public abstract void payer();
-    public abstract void selectionnerPlat(PlatChoisi plat);
-    public abstract String afficher(Facture facture);
+    public abstract void ajouterPlat(PlatChoisi plat) throws Exception;
+    public abstract void retirerPlat(PlatChoisi plat) throws Exception;
+    public abstract void fermer() throws Exception;
+    public abstract void ouvrir() throws Exception;
+    public abstract void payer() throws Exception;
+    public abstract void selectionnerPlat(PlatChoisi plat) throws Exception;
+    public abstract String afficherMontants(Facture facture);
 }
 

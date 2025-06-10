@@ -2,20 +2,20 @@ package menufact.modele;
 
 import menufact.modele.exceptions.MenuException;
 import menufact.modele.plats.PlatAuMenu;
-
+import menufact.modele.plats.Plat;
 import java.util.ArrayList;
 
 public class Menu {
     private String description;
     private int courant;
-    private ArrayList<PlatAuMenu> plat = new ArrayList<PlatAuMenu>();
+    private ArrayList<Plat> plat = new ArrayList<>();
     private static Menu instance = null;
 
     private Menu(String description) {
         this.description = description;
     }
 
-    public void ajoute (PlatAuMenu p)
+    public void ajoute (Plat p)
     {
         plat.add(p);
     }
@@ -25,7 +25,7 @@ public class Menu {
         courant = i;
     }
 
-    public PlatAuMenu platCourant()
+    public Plat platCourant()
     {
         return plat.get(courant);
     }

@@ -17,10 +17,10 @@ import java.util.Date;
 public class Facture {
     private Date date;
     private String description;
-    private FactureEtat etat;
-    private ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
-    private PlatChoisi platChoisi;
-    private Observateur observateur;
+    FactureEtat etat;
+    ArrayList<PlatChoisi> platchoisi = new ArrayList<PlatChoisi>();
+    PlatChoisi platChoisi;
+    Observateur observateur;
     private int courant;
     private Client client;
 
@@ -77,16 +77,14 @@ public class Facture {
     /**
      * Permet de changer l'état de la facture à PAYEE
      */
-    public void payer()
-    {
-       etat = new EtatPayee(this);
+    public void payer() throws Exception {
+        etat.payer();
     }
     /**
      * Permet de changer l'état de la facture à FERMEE
      */
-    public void fermer()
-    {
-       etat = new EtatFermee(this);
+    public void fermer() throws Exception {
+        etat.fermer();
     }
 
 
@@ -94,12 +92,8 @@ public class Facture {
      * Permet de changer l'état de la facture à OUVERTE
      * @throws FactureException en cas que la facture soit PAYEE
      */
-    public void ouvrir() throws FactureException
-    {
-        if (etat instanceof EtatOuverte)
-            throw new FactureException("La facture ne peut pas être reouverte.");
-        else
-            etat = new EtatOuverte(this);
+    public void ouvrir() throws Exception {
+        etat.ouvrir();
     }
 
     /**
@@ -191,6 +185,6 @@ public class Facture {
     }
 
     public String afficherMontants() {
-        return etat.afficher(this);
+        return etat.afficherMontants(this);
     }
 }
