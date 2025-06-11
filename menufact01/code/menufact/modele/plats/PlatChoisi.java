@@ -1,7 +1,9 @@
 package modele.plats;
 
+import modele.ingredients.Ingredient;
 import modele.plats.Plat;
-import modele.plats.PlatAuMenu;
+
+import java.util.Map;
 
 public class PlatChoisi {
     private Plat plat;
@@ -23,6 +25,7 @@ public class PlatChoisi {
         return "menufact.plats.PlatChoisi{" +
                 "quantite=" + quantite +
                 ", plat=" + plat +
+                ", ingredientQuantities=" + getIngredientQuantities() +
                 '}';
     }
 
@@ -40,6 +43,10 @@ public class PlatChoisi {
 
     public void setEtatCourant(EtatPlat etat) {
         this.etatCourant = etat;
+    }
+
+    public Map<Ingredient, Double> getIngredientQuantities() {
+        return plat.getIngredientQuantities(); // Délègue à l'objet Plat
     }
 
     public EtatPlat getEtatCourant() {

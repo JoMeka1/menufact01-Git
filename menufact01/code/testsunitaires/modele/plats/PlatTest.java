@@ -1,7 +1,13 @@
 package modele.plats;
 
+import modele.ingredients.Ingredient;
+import modele.ingredients.TypeIngredient;
+import modele.ingredients.UniteSolide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +16,9 @@ class PlatTest {
 
     @BeforeEach
     void setUp() {
-        plat = new PlatAuMenu(1, "Poulet Rôti", 12.5);
+        Map<Ingredient, Double> ingredientQuantities = new HashMap<>();
+        ingredientQuantities.put(new Ingredient("Tomate", "Légume rouge", TypeIngredient.LEGUME, new UniteSolide()), 200.0);
+        plat = new PlatAuMenu(1, "Poulet Rôti", 12.50, ingredientQuantities);
     }
 
     @Test
@@ -30,8 +38,8 @@ class PlatTest {
 
     @Test
     void testToString() {
-        String expected = "PlatAuMenu{code=1, description='Poulet Rôti', prix=12.5}";
-        assertEquals(expected, plat.toString(), "toString devrait retourner la chaîne attendue");
+        String expected = "PlatAuMenu{code=1, description='Poulet Rôti', prix=12.50, ingredients={Tomate=200.0 g}}";
+        assertEquals(expected, plat.toString(), "toString devrait retourner la chaîne attendue avec ingrédients");
     }
 
     @Test
@@ -58,5 +66,6 @@ class PlatTest {
         assertNull(emptyPlat.getDescription(), "La description devrait être null par défaut");
         assertEquals(0.0, emptyPlat.getPrix(), 0.01, "Le prix devrait être 0.0 par défaut");
         assertEquals(0, emptyPlat.getCode(), "Le code devrait être 0 par défaut");
+        assertTrue(emptyPlat.getIngredientQuantities().isEmpty(), "Les quantités d'ingrédients devraient être vides par défaut");
     }
 }

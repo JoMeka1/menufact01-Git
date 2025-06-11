@@ -6,8 +6,16 @@ import modele.Client;
 import modele.Chef;
 import modele.Observateur;
 import modele.exceptions.MenuException;
+import modele.ingredients.Ingredient;
+import modele.ingredients.TypeIngredient;
+import modele.ingredients.UniteMesure;
+import modele.ingredients.UniteSolide;
 import modele.plats.*;
 import modele.Menu;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TestMenuFact02 {
 
@@ -16,17 +24,21 @@ public class TestMenuFact02 {
         TestMenuFact02 t = new TestMenuFact02();
 
         ConcretePlatFactory factory = new ConcretePlatFactory();
-        Plat p1 = factory.creerPlat(TypePlat.NORMAL, 0, "PlatAuMenu0", 10.0, 0.0, 0.0, 0.0, 0.0);
-        Plat p2 = factory.creerPlat(TypePlat.NORMAL, 1, "PlatAuMenu1", 20.0, 0.0, 0.0, 0.0, 0.0);
-        Plat p3 = factory.creerPlat(TypePlat.NORMAL, 2, "PlatAuMenu2", 30.0, 0.0, 0.0, 0.0, 0.0);
-        Plat p4 = factory.creerPlat(TypePlat.NORMAL, 3, "PlatAuMenu3", 40.0, 0.0, 0.0, 0.0, 0.0);
-        Plat p5 = factory.creerPlat(TypePlat.NORMAL, 4, "PlatAuMenu4", 50.0, 0.0, 0.0, 0.0, 0.0);
-        Plat p6 = factory.creerPlat(TypePlat.NORMAL, 5, "PlatAuMenu5", 60.0, 0.0, 0.0, 0.0, 0.0);
-        Plat ps1 = factory.creerPlat(TypePlat.SANTE, 10, "PlatSante0", 10.0, 200.0, 0.0, 5.0, 0.0);
-        Plat ps2 = factory.creerPlat(TypePlat.SANTE, 11, "PlatSante1", 20.0, 200.0, 0.0, 5.0, 0.0);
-        Plat ps3 = factory.creerPlat(TypePlat.SANTE, 12, "PlatSante2", 30.0, 200.0, 0.0, 5.0, 0.0);
-        Plat ps4 = factory.creerPlat(TypePlat.SANTE, 13, "PlatSante3", 40.0, 200.0, 0.0, 5.0, 0.0);
-        Plat ps5 = factory.creerPlat(TypePlat.SANTE, 14, "PlatSante4", 50.0, 200.0, 0.0, 5.0, 0.0);
+        Map<Ingredient, Double> ingredientQuantities = new HashMap<>();
+        ingredientQuantities.put(new Ingredient("Tomate", "Légume rouge", TypeIngredient.LEGUME, new UniteSolide()), 200.0);
+        ingredientQuantities.put(new Ingredient("Sel", "Assaisonnement", TypeIngredient.EPICE, new UniteSolide()), 5.0);
+
+        Plat p1 = factory.creerPlat(TypePlat.NORMAL, 0, "PlatAuMenu0", 10.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat p2 = factory.creerPlat(TypePlat.NORMAL, 1, "PlatAuMenu1", 20.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat p3 = factory.creerPlat(TypePlat.NORMAL, 2, "PlatAuMenu2", 30.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat p4 = factory.creerPlat(TypePlat.NORMAL, 3, "PlatAuMenu3", 40.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat p5 = factory.creerPlat(TypePlat.NORMAL, 4, "PlatAuMenu4", 50.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat p6 = factory.creerPlat(TypePlat.NORMAL, 5, "PlatAuMenu5", 60.0, 0.0, 0.0, 0.0, 0.0, ingredientQuantities);
+        Plat ps1 = factory.creerPlat(TypePlat.SANTE, 10, "PlatSante0", 10.0, 200.0, 0.0, 5.0, 0.0, ingredientQuantities);
+        Plat ps2 = factory.creerPlat(TypePlat.SANTE, 11, "PlatSante1", 20.0, 200.0, 0.0, 5.0, 0.0, ingredientQuantities);
+        Plat ps3 = factory.creerPlat(TypePlat.SANTE, 12, "PlatSante2", 30.0, 200.0, 0.0, 5.0, 0.0, ingredientQuantities);
+        Plat ps4 = factory.creerPlat(TypePlat.SANTE, 13, "PlatSante3", 40.0, 200.0, 0.0, 5.0, 0.0, ingredientQuantities);
+        Plat ps5 = factory.creerPlat(TypePlat.SANTE, 14, "PlatSante4", 50.0, 200.0, 0.0, 5.0, 0.0, ingredientQuantities);
 
         Menu m1 = Menu.getInstance("menufact.Menu 1");
 
@@ -53,7 +65,7 @@ public class TestMenuFact02 {
         }
 
         try {
-            t.test7_CreerFacture(f1, m1);
+            t.test7_CreerFacture(f1, m1, 2);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -61,13 +73,13 @@ public class TestMenuFact02 {
         t.test8_AjouterClientFacture(f1, c1);
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1, 1);
+            t.test8_AjouterPlatsFacture(f1, m1, 1, 3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
         try {
-            t.test11_EtatPlatEtObservateur(f1, m1);
+            t.test11_EtatPlatEtObservateur(f1, m1, 4);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -85,7 +97,7 @@ public class TestMenuFact02 {
         }
 
         try {
-            t.test8_AjouterPlatsFacture(f1, m1, 1);
+            t.test8_AjouterPlatsFacture(f1, m1, 1, 3);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -97,12 +109,13 @@ public class TestMenuFact02 {
         }
 
         System.out.println("FIN DE TOUS LES TESTS...");
-        System.out.println(f1.afficherMontants());
+        System.out.println(f1.genererFacture());
     }
 
     private void test1_AffichePlats(boolean trace, Plat p1, Plat p2, Plat p3, Plat p4, Plat p5, Plat p6) {
         System.out.println("=== test1_AffichePlats");
         if (trace) {
+            System.out.println("Plats avec quantités et ingrédients :");
             System.out.println(p1);
             System.out.println(p2);
             System.out.println(p3);
@@ -115,6 +128,7 @@ public class TestMenuFact02 {
     private void test2_AffichePlatsSante(boolean trace, Plat ps1, Plat ps2, Plat ps3, Plat ps4, Plat ps5) {
         System.out.println("=== test2_AffichePlatsSante");
         if (trace) {
+            System.out.println("Plats santé avec quantités et ingrédients :");
             System.out.println(ps1);
             System.out.println(ps2);
             System.out.println(ps3);
@@ -125,14 +139,14 @@ public class TestMenuFact02 {
 
     private void test4_AjoutPlatsAuMenu(boolean trace, Menu m1, Plat p1, Plat p2, Plat ps1, Plat ps2) {
         System.out.println("=== test4_AjoutPlatsAuMenu");
-        System.out.println("=== Ajout de plats au menu 1");
+        System.out.println("=== Ajout de plats au menu 1 avec quantités et ingrédients");
         m1.ajoute(p1);
         m1.ajoute(p2);
         m1.ajoute(ps1);
         m1.ajoute(ps2);
 
         if (trace) {
-            System.out.println(m1);
+            System.out.println("Menu avec quantités et ingrédients : " + m1);
         }
     }
 
@@ -141,7 +155,7 @@ public class TestMenuFact02 {
         System.out.println("=== Sélectionner le plat à la position 0 du menu");
         m1.position(0);
 
-        System.out.println("=== Afficher le plat courant");
+        System.out.println("=== Afficher le plat courant avec quantités et ingrédients");
         System.out.println(m1.platCourant());
         try {
             System.out.println("=== Avancer le plat courant");
@@ -165,7 +179,7 @@ public class TestMenuFact02 {
         System.out.println("=== Sélectionner le plat à la position 3 du menu");
         m1.position(3);
 
-        System.out.println("=== Afficher le plat courant");
+        System.out.println("=== Afficher le plat courant avec quantités et ingrédients");
         System.out.println(m1.platCourant());
         try {
             System.out.println("=== Reculer le plat courant");
@@ -184,24 +198,27 @@ public class TestMenuFact02 {
         }
     }
 
-    private void test7_CreerFacture(Facture f1, Menu m1) throws Exception {
+    private void test7_CreerFacture(Facture f1, Menu m1, double quantite) throws Exception {
         System.out.println("=== test7_CreerFacture");
-        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), 5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), quantite);
         try {
             f1.ajoutePlat(platChoisi);
         } catch (Exception e) {
             throw e;
         }
-        System.out.println(f1);
+        System.out.println("Facture avec quantités et ingrédients : " + f1);
+        System.out.println("Sous-total attendu : " + (m1.platCourant().getPrix() * quantite));
+        System.out.println("Sous-total réel : " + f1.sousTotal());
+        System.out.println("Ingrédients avec quantités : " + platChoisi.getIngredientQuantities());
     }
 
     private void test8_AjouterClientFacture(Facture f1, Client c1) {
         System.out.println("=== test8_AjouterClientFacture");
         f1.associerClient(c1);
-        System.out.println(f1);
+        System.out.println("Facture avec client, quantités et ingrédients : " + f1);
     }
 
-    private void test8_AjouterPlatsFacture(Facture f1, Menu m1, int pos) throws Exception {
+    private void test8_AjouterPlatsFacture(Facture f1, Menu m1, int pos, double quantite) throws Exception {
         System.out.println("=== test8_AjouterPlatsFacture");
         try {
             for (int i = 0; i < pos; i++) {
@@ -210,50 +227,51 @@ public class TestMenuFact02 {
         } catch (MenuException me) {
             throw me;
         }
-        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), 5);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), quantite);
         try {
             f1.ajoutePlat(platChoisi);
         } catch (Exception e) {
             throw e;
         }
-        System.out.println(f1);
+        System.out.println("Facture avec plat ajouté, quantités et ingrédients : " + f1);
+        System.out.println("Sous-total attendu : " + (m1.platCourant().getPrix() * quantite));
+        System.out.println("Sous-total réel : " + f1.sousTotal());
+        System.out.println("Ingrédients avec quantités : " + platChoisi.getIngredientQuantities());
     }
 
     private void test9_PayerFacture(Facture f1) {
         System.out.println("=== test9_PayerFacture");
-        System.out.println("Avant payer la facture");
-        System.out.println(f1);
+        System.out.println("Avant payer la facture avec quantités et ingrédients : " + f1);
         try {
             f1.payer();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Après avoir payé la facture");
-        System.out.println(f1.afficherMontants());
+        System.out.println("Après avoir payé la facture : " + f1.afficherMontants());
     }
 
     private void test10_FermerFacture(Facture f1) {
         System.out.println("=== test10_FermerFacture");
-        System.out.println("Avant fermer la facture");
-        System.out.println(f1);
+        System.out.println("Avant fermer la facture avec quantités et ingrédients : " + f1);
         try {
             f1.fermer();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("Après avoir fermé la facture");
-        System.out.println(f1.afficherMontants());
+        System.out.println("Après avoir fermé la facture : " + f1.afficherMontants());
     }
 
-    private void test11_EtatPlatEtObservateur(Facture f1, Menu m1) throws Exception {
+    private void test11_EtatPlatEtObservateur(Facture f1, Menu m1, double quantite) throws Exception {
         System.out.println("=== test11_EtatPlatEtObservateur");
         System.out.println("=== Créer et ajouter un plat à la facture pour tester l'observateur");
-        m1.position(0); // Sélectionner un plat
-        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), 3);
+        m1.position(0);
+        PlatChoisi platChoisi = new PlatChoisi(m1.platCourant(), quantite);
         try {
             f1.ajoutePlat(platChoisi);
             System.out.println("État du plat après ajout (devrait être EnPreparation) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
             System.out.println("Affichage de l'état EnPreparation : " + platChoisi.getEtatCourant().afficher(platChoisi));
+            System.out.println("Ingrédients avec quantités : " + platChoisi.getIngredientQuantities());
+            System.out.println("Quantité : " + platChoisi.getQuantite());
             if (!(platChoisi.getEtatCourant() instanceof EtatEnPreparation)) {
                 throw new Exception("L'observateur n'a pas mis le plat en EtatEnPreparation.");
             }
@@ -269,6 +287,8 @@ public class TestMenuFact02 {
         platChoisi.getEtatCourant().terminer(platChoisi);
         System.out.println("État après terminer (devrait être Termine) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
         System.out.println("Affichage de l'état Termine : " + platChoisi.getEtatCourant().afficher(platChoisi));
+        System.out.println("Ingrédients avec quantités après terminer : " + platChoisi.getIngredientQuantities());
+        System.out.println("Quantité après terminer : " + platChoisi.getQuantite());
         if (!(platChoisi.getEtatCourant() instanceof EtatTermine)) {
             throw new Exception("Transition vers EtatTermine échouée.");
         }
@@ -280,6 +300,8 @@ public class TestMenuFact02 {
         platChoisi.getEtatCourant().servir(platChoisi);
         System.out.println("État après servir (devrait être Servi) : " + platChoisi.getEtatCourant().getClass().getSimpleName());
         System.out.println("Affichage de l'état Servi : " + platChoisi.getEtatCourant().afficher(platChoisi));
+        System.out.println("Ingrédients avec quantités après servir : " + platChoisi.getIngredientQuantities());
+        System.out.println("Quantité après servir : " + platChoisi.getQuantite());
         if (!(platChoisi.getEtatCourant() instanceof EtatServi)) {
             throw new Exception("Transition vers EtatServi échouée.");
         }
@@ -299,10 +321,12 @@ public class TestMenuFact02 {
         // Créer un autre plat pour tester EtatPasServable
         System.out.println("=== Tester EtatPasServable");
         PlatChoisi platChoisi2 = new PlatChoisi(m1.platCourant(), 2);
-        f1.ajoutePlat(platChoisi2); // Passe à EtatEnPreparation via l'observateur
+        f1.ajoutePlat(platChoisi2);
         platChoisi2.getEtatCourant().rendreInservable(platChoisi2);
         System.out.println("État après rendre inservable (devrait être PasServable) : " + platChoisi2.getEtatCourant().getClass().getSimpleName());
         System.out.println("Affichage de l'état PasServable : " + platChoisi2.getEtatCourant().afficher(platChoisi2));
+        System.out.println("Ingrédients avec quantités après rendre inservable : " + platChoisi2.getIngredientQuantities());
+        System.out.println("Quantité après rendre inservable : " + platChoisi2.getQuantite());
         if (!(platChoisi2.getEtatCourant() instanceof EtatPasServable)) {
             throw new Exception("Transition vers EtatPasServable échouée.");
         }

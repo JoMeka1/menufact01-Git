@@ -1,8 +1,13 @@
 package modele.plats;
 
+import modele.ingredients.Ingredient;
+import java.util.HashMap;
+import java.util.Map;
+
 public interface Plat {
-    public String getDescription();
-    public double getPrix();
-    public int getCode();
-    public String toString();
+    String getDescription();
+    double getPrix();
+    int getCode();
+    String toString();
+    Map<Ingredient, Double> getIngredientQuantities();
 }
