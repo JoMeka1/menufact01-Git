@@ -1,13 +1,21 @@
 package modele.plats;
 
+import modele.ingredients.Ingredient;
+import java.util.HashMap;
+import java.util.Map;
+
 public abstract class PlatDecorator implements Plat {
     protected Plat plat;
+    protected Map<Ingredient, Double> ingredientQuantities;
 
     public PlatDecorator(Plat plat) {
-        if (plat == null) {
-            throw new IllegalArgumentException("Plat ne peut pas être null");
-        }
         this.plat = plat;
+        this.ingredientQuantities = new HashMap<>(plat.getIngredientQuantities());
+    }
+
+    public PlatDecorator(Plat plat, Map<Ingredient, Double> ingredientQuantities) {
+        this.plat = plat;
+        this.ingredientQuantities = new HashMap<>(ingredientQuantities != null ? ingredientQuantities : plat.getIngredientQuantities());
     }
 
     @Override
@@ -27,6 +35,19 @@ public abstract class PlatDecorator implements Plat {
 
     @Override
     public String toString() {
-        return plat.toString();
+        return plat.toString() + " (décoré avec ingredients=" + ingredientQuantities + ")";
+    }
+
+    @Override
+    public Map<Ingredient, Double> getIngredientQuantities() {
+        Map<Ingredient, Double> allIngredients = new HashMap<>(plat.getIngredientQuantities());
+        allIngredients.putAll(ingredientQuantities);
+        return allIngredients;
+    }
+
+    public void ajouterIngredient(Ingredient ingredient, double quantite) {
+        if (ingredient != null && quantite > 0) {
+            ingredientQuantities.put(ingredient, quantite);
+        }
     }
 }
